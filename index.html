@@ -2,10 +2,51 @@
 <html>
     <head>
         <meta charset="UTF-8">
-
     </head>
     <body>
-        
+        <div class="wrapper" style="width:300px">
+            <div class="header" style="display: flex; justify-content:space-between;">
+                <div class="logo">
+                    <h1>Logo</h1>
+                </div>
+                <div class="languages">
+                    <span id="eng">EN</span> <span id="rus">RU</span> <span id="kaz">KZ</span>
+                </div>
+            </div>
+            <div class="main-content">
+                <h3>Basic settings</h3>
+                <p>Тема: <span id="white">Светлая</span> <span id="dark">Темная</span> <span id="sepia">Бежевая</span></p>
+                <p>Размер шрифта: <span id="remove-size">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-size">&#5171;</span></p>
+                <p>Сделать картинки чб: <input type="checkbox" id="bw-image"></p>
+                <p>Выделять цветом текст: <input type="checkbox" id="highlight"></p>
+            </div>
+
+            <div class="advansed-content">
+                <h3>Advanced settings</h3>
+                <h4>Text options:</h4>
+                <div id="text-menu">
+                    <p>Межстрочный интервал: <span class="remove interval">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="add interval">&#5171;</span></p>
+                    <p>Выбрать шрифт: 
+                        <select>
+                            <option value="arial">Arial</option>
+                            <option value="helvetica">Helvetica</option>
+                            <option value="open-sans">Open Sans</option>
+                            <option value="verdana">Verdana</option>
+                        </select>
+                        <button id="font-changer">Change</button>
+                    </p>
+                    <h1 style="text-align: center;" id="font">Шрифт</h1>
+
+                </div>
+                
+                <h4>Image options:</h4>
+                <div id="image-menu"></div>
+                    <p>Яркость: <span id="remove-bright">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-bright">&#5171;</span></p>
+                    <p>Насыщенность: <span id="remove-satur">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-satur">&#5171;</span></p>
+                    <p>Контрастность: <span id="remove-contr">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-contr">&#5171;</span></p>
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>
