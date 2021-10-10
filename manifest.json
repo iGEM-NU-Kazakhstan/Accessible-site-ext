@@ -1,0 +1,22 @@
+{
+    "manifest_version":2,
+    "name": "makeItEasy",
+    "description":"Make sites accessible for people with disabilities",
+    "version":"0.0.1",
+    "author":"Dynimite hamsters",
+    "browser_action":{
+        "default_title":"Accessible sites",
+        "default_icon":"icon.png",
+        "default_popup":"index.html"
+    },
+    "content_scripts":[
+        {
+            "matches":[
+                "<all_urls>"
+                ],
+                "js":["jquery.min.js", "content.js"]
+        }
+    ],
+    "permissions":["activeTab"]
+       
+}
