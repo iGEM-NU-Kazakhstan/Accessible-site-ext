@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" type="text/css"/>
-        <script src="content.js"></script>
+        
     </head>
     <body>
         <div class="wrapper" style="width:300px">
@@ -23,13 +23,13 @@
                 <p>Выделять цветом текст: <input type="checkbox" id="highlight"></p>
             </div>
 
-            <div class="advansed-content">
+            <div class="advanced-content">
                 <h3>Advanced settings</h3>
                 
                 <div class="block">
                     <div id="text-menu" class="block-item">
-                        <div class="block-title">Text options</div>
-                        <div class="block-text">
+                        <div id="block-title1" class="block-title">Text options</div>
+                        <div id="block-text1" class="block-text">
                             <p>Межстрочный интервал: <span id="remove-int">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int">&#5171;</span></p>
                             <p>Выбрать шрифт:</p> 
                             <div>
@@ -47,8 +47,8 @@
 
                     </div>
                     <div id="image-menu" class="block-item">
-                        <div class="block-title">Image options</div>
-                        <div  class="block-text">
+                        <div id="block-title2" class="block-title">Image options</div>
+                        <div id="block-text2"class="block-text">
                             <p>Яркость: <span id="remove-bright">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-bright">&#5171;</span></p>
                             <p>Насыщенность: <span id="remove-satur">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-satur">&#5171;</span></p>
                             <p>Контрастность: <span id="remove-contr">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-contr">&#5171;</span></p>
@@ -57,7 +57,8 @@
             </div>
             </div>
         </div>
-    
+    <script src="content.js"></script>
+    <script src="jquery.min.js"></script>
     </body>
     
 </html>

@@ -38,10 +38,11 @@ html,body{
 
 
 .block-text{
-    
     padding: 10px 0px 0px 0px;
+    display: none;
+    
 }
 
 .block-text.active{
-    color:red;
+    display: block;
 }
