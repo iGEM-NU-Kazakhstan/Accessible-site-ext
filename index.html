@@ -6,8 +6,8 @@
         
     </head>
     <body>
-        <div class="wrapper" style="width:300px">
-            <div class="header" style="display: flex; justify-content:space-between;">
+        <div class="wrapper">
+            <div class="header">
                 <div class="logo">
                     <h1 class="ext-logo">Logo</h1>
                 </div>
@@ -17,21 +17,21 @@
             </div>
             <div class="main-content">
                 <h3>Basic settings</h3>
-                <p>Тема: <span id="white">Светлая</span> <span id="dark">Темная</span> <span id="sepia">Бежевая</span></p>
-                <p>Размер шрифта: <span id="remove-size">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-size">&#5171;</span></p>
+                <p>Theme: <button id="white">Светлая</button> <button id="dark">Темная</button> <button id="sepia">Бежевая</button></p>
+                <p>Font size: <span id="remove-size" class="control">&#5176;</span><input type="text" disabled style="width: 25px;" ><span id="add-size"  class="control">&#5171;</span></p>
                 <p>Сделать картинки чб: <input type="checkbox" id="bw-image"></p>
                 <p>Выделять цветом текст: <input type="checkbox" id="highlight"></p>
             </div>
 
             <div class="advanced-content">
                 <h3>Advanced settings</h3>
-                
+
                 <div class="block">
                     <div id="text-menu" class="block-item">
                         <div id="block-title1" class="block-title">Text options</div>
                         <div id="block-text1" class="block-text">
-                            <p>Межстрочный интервал: <span id="remove-int">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int">&#5171;</span></p>
-                            <p>Выбрать шрифт:</p> 
+                            <p>Line spacing: <span id="remove-int"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int"  class="control">&#5171;</span></p>
+                            <p>Choose font:</p> 
                             <div>
                                 <input type="radio" id="arial" name="contact" value="arial">
                                 <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
@@ -42,16 +42,16 @@
                                 <input type="radio" id="verdana" name="contact" value="verdana">
                                 <label for="verdana">Verdana</label>
                             </div>
-                            <h1 style="text-align: center;" id="font">Шрифт</h1>
+                            <h1 style="text-align: center;" id="font">Font</h1>
                         </div>
 
                     </div>
                     <div id="image-menu" class="block-item">
                         <div id="block-title2" class="block-title">Image options</div>
                         <div id="block-text2"class="block-text">
-                            <p>Яркость: <span id="remove-bright">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-bright">&#5171;</span></p>
-                            <p>Насыщенность: <span id="remove-satur">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-satur">&#5171;</span></p>
-                            <p>Контрастность: <span id="remove-contr">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-contr">&#5171;</span></p>
+                            <p>Brightness: <span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></p>
+                            <p>Saturation: <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></p>
+                            <p>Contrast: <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></p>
                         </div>
                     </div>
             </div>

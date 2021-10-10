@@ -1,9 +1,20 @@
 html,body{
     font-family: Helvetica, sans-serif;
-    
+    font-size: 16px;
+}
+input{
+    text-align: center;
 }
 .block{
 
+}
+.header{
+    display: flex; justify-content:space-between;
+}
+.wrapper{
+    width:340px;
+    margin: 10px 10px 10px 10px;
+    height: 100%;
 }
 .block-item{
     margin: 0px 0px 20px 0px;
@@ -16,7 +27,19 @@ html,body{
     padding: 0px 0px 0px 30px;
     cursor: pointer;
 }
+h1{
+    text-transform: uppercase;
+}
+.languages{
+    margin-top: 20px;
+}
+.control{
+    margin: 0px 5px 0px 5px;
+}
 
+h3{
+    color:rgb(131, 17, 17);
+}
 .block-title::before, .block-title::after{
     content: '';
     width: 10px;
@@ -24,6 +47,7 @@ html,body{
     background-color: #000;
     position: absolute;
     top: 8px;
+    transition: 0.5s;
 
 }
 .block-title::before{
@@ -39,10 +63,29 @@ html,body{
 
 .block-text{
     padding: 10px 0px 0px 0px;
+    transition: all .5s;
+    height: 0;
     display: none;
+    
     
 }
 
 .block-text.active{
     display: block;
+    height: auto;
+    transition: all .5s;
+}
+
+.block-title.active::before, .block-title.active::after{
+    background-color: red;
+
+}
+.block-title.active::before{
+    transform: rotate(-40deg);
+    transition: 0.5s;
+
+}
+.block-title.active::after{
+    transform: rotate(40deg);
+    transition: 0.5s;
 }
