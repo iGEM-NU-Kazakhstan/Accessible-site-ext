@@ -1,0 +1,47 @@
+html,body{
+    font-family: Helvetica, sans-serif;
+    
+}
+.block{
+
+}
+.block-item{
+    margin: 0px 0px 20px 0px;
+
+}
+.block-title{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0px 0px 0px 30px;
+    cursor: pointer;
+}
+
+.block-title::before, .block-title::after{
+    content: '';
+    width: 10px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 8px;
+
+}
+.block-title::before{
+    transform: rotate(40deg);
+    left:0;
+
+}
+.block-title::after{
+    transform: rotate(-40deg);
+    left:8px;
+}
+
+
+.block-text{
+    
+    padding: 10px 0px 0px 0px;
+}
+
+.block-text.active{
+    color:red;
+}

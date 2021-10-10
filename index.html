@@ -2,12 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script src="content.js"></script>
     </head>
     <body>
         <div class="wrapper" style="width:300px">
             <div class="header" style="display: flex; justify-content:space-between;">
                 <div class="logo">
-                    <h1>Logo</h1>
+                    <h1 class="ext-logo">Logo</h1>
                 </div>
                 <div class="languages">
                     <span id="eng">EN</span> <span id="rus">RU</span> <span id="kaz">KZ</span>
@@ -23,30 +25,39 @@
 
             <div class="advansed-content">
                 <h3>Advanced settings</h3>
-                <h4>Text options:</h4>
-                <div id="text-menu">
-                    <p>Межстрочный интервал: <span id="remove-int">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int">&#5171;</span></p>
-                    <p>Выбрать шрифт: 
-                        <select>
-                            <option value="arial">Arial</option>
-                            <option value="helvetica">Helvetica</option>
-                            <option value="open-sans">Open Sans</option>
-                            <option value="verdana">Verdana</option>
-                        </select>
-                        <button id="font-changer">Change</button>
-                    </p>
-                    <h1 style="text-align: center;" id="font">Шрифт</h1>
-
-                </div>
                 
-                <h4>Image options:</h4>
-                <div id="image-menu"></div>
-                    <p>Яркость: <span id="remove-bright">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-bright">&#5171;</span></p>
-                    <p>Насыщенность: <span id="remove-satur">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-satur">&#5171;</span></p>
-                    <p>Контрастность: <span id="remove-contr">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-contr">&#5171;</span></p>
-                </div>
+                <div class="block">
+                    <div id="text-menu" class="block-item">
+                        <div class="block-title">Text options</div>
+                        <div class="block-text">
+                            <p>Межстрочный интервал: <span id="remove-int">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int">&#5171;</span></p>
+                            <p>Выбрать шрифт:</p> 
+                            <div>
+                                <input type="radio" id="arial" name="contact" value="arial">
+                                <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
+                                <input type="radio" id="helvetica" name="contact" value="helvetica">
+                                <label for="helvetica">Helvetica</label>
+                                <input type="radio" id="open-sans" name="contact" value="open-sans">
+                                <label  for="open-sans">Open-sans</label>
+                                <input type="radio" id="verdana" name="contact" value="verdana">
+                                <label for="verdana">Verdana</label>
+                            </div>
+                            <h1 style="text-align: center;" id="font">Шрифт</h1>
+                        </div>
+
+                    </div>
+                    <div id="image-menu" class="block-item">
+                        <div class="block-title">Image options</div>
+                        <div  class="block-text">
+                            <p>Яркость: <span id="remove-bright">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-bright">&#5171;</span></p>
+                            <p>Насыщенность: <span id="remove-satur">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-satur">&#5171;</span></p>
+                            <p>Контрастность: <span id="remove-contr">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-contr">&#5171;</span></p>
+                        </div>
+                    </div>
+            </div>
             </div>
         </div>
-
+    
     </body>
+    
 </html>
