@@ -46,6 +46,7 @@ div{
 .control{
     margin: 0px 2px 0px 2px;
     cursor: pointer;
+    font-weight: bold;
 }
 .control:hover{
     color:#8f0000;
@@ -62,17 +63,18 @@ h3{
     background-color: #000;
     position: absolute;
     top: 12px;
+
     transition: 0.5s;
 
 }
 .block-title::before{
     transform: rotate(40deg);
-    left:0;
+    left:4px;
 
 }
 .block-title::after{
     transform: rotate(-40deg);
-    left:8px;
+    left:12px;
 }
 
 

@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded',function(){
 function generate_theme(colorBg, colorText){
     my_code = 'document.querySelectorAll("*").forEach(e => e.style.backgroundColor = "'+colorBg+'");'
     my_code =  my_code +'document.querySelectorAll("*").forEach(e => e.style.color= "'+colorText+'");'
-    my_code = my_code+'document.querySelectorAll("*").forEach(e => e.style.color= "'+colorText+'");'
     return my_code
 
 }
@@ -117,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
     buttonSepia.onclick = function () {
       let colorBg = "rgb(186, 181, 171, 0.8)";
-      let colorText = "rgb(43, 27, 27)";
+      let colorText = "rgb(141, 78, 19)";
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.executeScript(tabs[0].id, {
           code: generate_theme(colorBg, colorText)
