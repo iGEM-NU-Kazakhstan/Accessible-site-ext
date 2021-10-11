@@ -283,16 +283,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }else{
             checkbox.value = "Enabled"
         }
-        my_code = 'var style = document.createElement("style");'+'style.className="color";'+
-                    'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
-                    'if (document.querySelectorAll("style.color")[0] == null){'+
-                        'var style = document.createElement("style");'+
-                        'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
-                        'style.className="color";document.getElementsByTagName("head")[0].appendChild(style);}'
-                    +'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
-                code: my_code
+                file: "design.js"
               });
         });
     }
