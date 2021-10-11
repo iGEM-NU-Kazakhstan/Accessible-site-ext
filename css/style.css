@@ -95,9 +95,15 @@ p{
 
 h3{
     border-bottom: 1px solid rgb(155, 155, 155, 0.5);
+    color:#8f0000;
+}
+h2{
+    text-transform: uppercase;
+    color:#5b0101;
+
 }
 h2, h3{
-    color:#8f0000;
+    
     margin-top: 5px;
     margin-bottom: 5px;
 
