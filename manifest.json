@@ -6,7 +6,6 @@
     "author":"Dynimite hamsters",
     "browser_action":{
         "default_title":"Accessible sites",
-        
         "default_popup":"index.html"
     },
     "content_scripts":[
@@ -14,9 +13,16 @@
             "matches":[
                 "<all_urls>"
                 ],
-                "js":["jquery.min.js", "content.js"]
+            "exclude_matches": ["https://www.google.com/*", "https://google.com/*", "http://www.google.com/*", "http://google.com/*", "https://mail.google.com/*", "http://mail.google.com/*", "https://studio.youtube.com/*"], 
+            "js":["jquery.min.js", "content.js"],
+            "run_at":"document_end"
         }
     ],
-    "permissions":["activeTab"]
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+      },
+    
+    "permissions":["background","activeTab", "webRequestBlocking","*://*/*", "webRequest"]
        
 }

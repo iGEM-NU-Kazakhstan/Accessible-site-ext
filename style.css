@@ -2,17 +2,20 @@ html,body{
     font-family: Helvetica, sans-serif;
     font-size: 16px;
 }
+label, input, button{
+    font-size: 16px;
+}
 input{
     text-align: center;
 }
 .block{
-
+ 
 }
 .header{
     display: flex; justify-content:space-between;
 }
 .wrapper{
-    width:340px;
+    width:350px;
     margin: 10px 10px 10px 10px;
     height: 100%;
 }
@@ -31,14 +34,17 @@ h1{
     text-transform: uppercase;
 }
 .languages{
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .control{
-    margin: 0px 5px 0px 5px;
+    margin: 0px 2px 0px 2px;
+}
+.apply{
+    margin-top:10px;
 }
 
 h3{
-    color:rgb(131, 17, 17);
+    color:#8f0000;
 }
 .block-title::before, .block-title::after{
     content: '';
@@ -62,11 +68,10 @@ h3{
 
 
 .block-text{
-    padding: 10px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
     transition: all .5s;
     height: 0;
     display: none;
-    
     
 }
 
@@ -89,3 +94,17 @@ h3{
     transform: rotate(40deg);
     transition: 0.5s;
 }
+#content_eng.active{
+    display: none;
+}
+#content_rus, #content_kaz{
+    display: none;
+}
+#content_rus.active{
+    display: block;
+}
+
+#content_kaz.active{
+    display: block;
+}
+

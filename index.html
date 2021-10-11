@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" type="text/css"/>
-        
+        <link rel="import" href="html/rus_version.html">
+        <script src="content.js"></script>
+        <script src="jquery.min.js"></script>
+        <script src="add_blocker.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -12,53 +15,78 @@
                     <h1 class="ext-logo">Logo</h1>
                 </div>
                 <div class="languages">
-                    <span id="eng">EN</span> <span id="rus">RU</span> <span id="kaz">KZ</span>
+                    <button id="eng">EN</button> <button id="rus">RU</button> <button id="kaz">KZ</span>
                 </div>
             </div>
-            <div class="main-content">
-                <h3>Basic settings</h3>
-                <p>Theme: <button id="white">Светлая</button> <button id="dark">Темная</button> <button id="sepia">Бежевая</button></p>
-                <p>Font size: <span id="remove-size" class="control">&#5176;</span><input type="text" disabled style="width: 25px;" ><span id="add-size"  class="control">&#5171;</span></p>
-                <p>Сделать картинки чб: <input type="checkbox" id="bw-image"></p>
-                <p>Выделять цветом текст: <input type="checkbox" id="highlight"></p>
-            </div>
+            <div id="content" class="content">
+                <div class="main-content">
+                    <h3><span id="bs">Basic settings</span></h3>
+                    <p>
+                        <span id="theme">Theme:</span> 
+                        <button id="white" class="theme">White</button> 
+                        <button id="dark" class="theme">Dark</button> 
+                        <button id="sepia" class="theme">Sepia</button></p>
+                    <p>
+                        <span id="font_size">Font size: </span>
+                        <button id="remove-size" class="control">–</button>
+                        <button id="add-size" class="control">+</button>
+                    </p>
+                    <p>
+                        <span id="bw">Monochrome images:</span> 
+                        <input type="checkbox" id="bw-image">
+                    </p>
+                    <p>
+                        <span id="hl">Highlight-text:</span>
+                        <input type="checkbox" id="highlight">
+                    </p>
+                    <p>
+                        <span id="blocker">Block suspicious links:</span>
+                        <input type="button" id="toggle_button" value="Disable" />
+                    </p>
+                </div>
 
-            <div class="advanced-content">
-                <h3>Advanced settings</h3>
+                <div class="advanced-content">
+                    <h3><span id="as">Advanced settings</span></h3>
 
-                <div class="block">
-                    <div id="text-menu" class="block-item">
-                        <div id="block-title1" class="block-title">Text options</div>
-                        <div id="block-text1" class="block-text">
-                            <p>Line spacing: <span id="remove-int"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span id="add-int"  class="control">&#5171;</span></p>
-                            <p>Choose font:</p> 
-                            <div>
-                                <input type="radio" id="arial" name="contact" value="arial">
-                                <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
-                                <input type="radio" id="helvetica" name="contact" value="helvetica">
-                                <label for="helvetica">Helvetica</label>
-                                <input type="radio" id="open-sans" name="contact" value="open-sans">
-                                <label  for="open-sans">Open-sans</label>
-                                <input type="radio" id="verdana" name="contact" value="verdana">
-                                <label for="verdana">Verdana</label>
+                    <div class="block">
+                        <div id="text-menu" class="block-item">
+                            <div id="block-title1" class="block-title">Text options</div>
+                            <div id="block-text1" class="block-text">
+                                <p><span id="ls">Line spacing:</span> 
+                                    <button id="remove-int"  class="control">–</button >
+                                    <button  id="add-int"  class="control">+</button >
+                                </p>
+                                <p><span id="cf">Choose font:</span></p> 
+                                <div>
+                                    <input type="radio" id="arial" name="fonts" value="arial">
+                                    <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
+                                    <input type="radio" id="open-sans" name="fonts" value="open-sans">
+                                    <label  for="open-sans">Open-sans</label>
+                                    <input type="radio" id="verdana" name="fonts" value="verdana">
+                                    <label for="verdana">Verdana</label>
+                                    <input type="radio" id="georgia" name="fonts" value="Georgia">
+                                    <label for="verdana">Georgia</label>
+                                    <div style="display: flex;justify-content:center;">
+                                        <button id="button-for-fontStyle" class="apply button">Apply</button>
+                                    </div>
+                                    
+                                </div>
+                                <p>Make it bolder: <button id="remove-bold" class="control">–</button><button id="add-bold" class="control">+</button></p>
                             </div>
-                            <h1 style="text-align: center;" id="font">Font</h1>
-                        </div>
 
-                    </div>
-                    <div id="image-menu" class="block-item">
-                        <div id="block-title2" class="block-title">Image options</div>
-                        <div id="block-text2"class="block-text">
-                            <p>Brightness: <span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></p>
-                            <p>Saturation: <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></p>
-                            <p>Contrast: <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></p>
                         </div>
-                    </div>
-            </div>
+                        <div id="image-menu" class="block-item">
+                            <div id="block-title2" class="block-title">Image options</div>
+                            <div id="block-text2"class="block-text">
+                                <p><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></p>
+                                <p><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></p>
+                                <p><span id="C">Contrast:</span> <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></p>
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
-    <script src="content.js"></script>
-    <script src="jquery.min.js"></script>
-    </body>
+    </div>     
+</body>
     
 </html>
