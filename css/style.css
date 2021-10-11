@@ -1,11 +1,14 @@
 html,body{
     font-family: Helvetica, sans-serif;
     font-size: 18px;
+    user-select: none;
 }
 label, input, button, div{
     font-size: 18px;
 }
-
+input, button{
+    cursor: pointer;
+}
 div{
     line-height: 30px;
 
@@ -28,9 +31,9 @@ p{
     margin: 10px 10px 10px 10px;
     height: 100%;
 }
+
 .block-item{
     margin: 0px 0px 10px 0px;
-
 }
 
 .block-title{
@@ -75,7 +78,7 @@ p{
 
 h3, h2{
     color:#8f0000;
-    text-transform: uppercase;
+    
 }
 h2, h3{
     margin-top: 5px;
