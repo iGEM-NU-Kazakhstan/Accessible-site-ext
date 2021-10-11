@@ -299,7 +299,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         'style.className="color"; '+
                         'document.getElementsByTagName("head")[0].appendChild(style);}'+
                         'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
-        alert(my_code)
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
                 code: my_code,
