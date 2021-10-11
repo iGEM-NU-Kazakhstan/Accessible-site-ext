@@ -1,7 +1,6 @@
 html,body{
     font-family: Helvetica, sans-serif;
     font-size: 18px;
-    user-select: none;   
 }
 label, input, button, div{
     font-size: 18px;
@@ -10,6 +9,9 @@ label, input, button, div{
 div{
     line-height: 30px;
 
+}
+p{
+    margin: 0;
 }
 .hm{
     width:70px;
@@ -22,7 +24,7 @@ div{
     display: flex; justify-content:space-between;
 }
 .wrapper{
-    width: 350px;
+    width: 420px;
     margin: 10px 10px 10px 10px;
     height: 100%;
 }
@@ -30,6 +32,7 @@ div{
     margin: 0px 0px 10px 0px;
 
 }
+
 .block-title{
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -37,12 +40,30 @@ div{
     padding: 0px 5px 0px 30px;
     cursor: pointer;
 }
+
+.main-content{
+    display: block;
+}
+.main-content.active{
+    display: none;
+}
+
+.apply{
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+#expand{
+    display: none;
+}
+#expand.active{
+    display: block;
+}
+
 .block-title:hover{
     background-color: rgb(141, 141, 141, 0.5);
 }
-.languages{
-    margin-top: 20px;
-}
+
 .control{
     margin: 0px 2px 0px 2px;
     cursor: pointer;
@@ -52,9 +73,14 @@ div{
     color:#8f0000;
 }
 
-h3{
+h3, h2{
     color:#8f0000;
     text-transform: uppercase;
+}
+h2, h3{
+    margin-top: 5px;
+    margin-bottom: 5px;
+
 }
 .block-title::before, .block-title::after{
     content: '';
@@ -118,4 +144,5 @@ h3{
 #content_kaz.active{
     display: block;
 }
+
 

@@ -9,12 +9,15 @@
     textOptionsTitle1.addEventListener("click", function () {
       blockText1.classList.toggle("active");
       textOptionsTitle1.classList.toggle("active");
+
       blockText2.classList.remove("active");
       textOptionsTitle2.classList.remove("active");
     });
     textOptionsTitle2.addEventListener("click", function () {
+
         blockText1.classList.remove("active");
         textOptionsTitle1.classList.remove("active");
+        
         blockText2.classList.toggle("active");
         textOptionsTitle2.classList.toggle("active");
       });
@@ -23,6 +26,7 @@
 document.addEventListener('DOMContentLoaded',function(){
 
     var element = document.getElementById('rus');
+    
     element.addEventListener('click',function(){
         document.getElementById('bs').innerText="Основные"
         document.getElementById('theme').innerText="Тема:"
@@ -40,8 +44,13 @@ document.addEventListener('DOMContentLoaded',function(){
         document.getElementById('B').innerText="Яркость"
         document.getElementById('C').innerText="Контрастность"
         document.getElementById('S').innerText="Насыщенность"
+        document.getElementById('highlight-links-enabled').innerText="Вкл"
+        document.getElementById('highlight-links-disabled').innerText="Выкл"
+        document.getElementById('bw-image-enable').innerText="Вкл"
+        document.getElementById('bw-image-disable').innerText="Выкл"
         document.getElementById('font').innerText="Шрифт"
-        document.getElementById('bloker').innerText="Блокировать подозрительные ссылки"
+        document.getElementById('bold').innerText="Жирность"
+        
     })
     var element = document.getElementById('kaz');
     element.addEventListener('click',function(){   
@@ -73,8 +82,8 @@ document.addEventListener('DOMContentLoaded',function(){
         document.getElementById('white').innerText="White"
         document.getElementById('sepia').innerText="Sepia"
         document.getElementById('font_size').innerText="Font size:"
-        document.getElementById('bw').innerText="Monochrome pictures:"
-        document.getElementById('hl').innerText="Highlight text:"
+        document.getElementById('bw').innerText="Mono images:"
+        document.getElementById('hl').innerText="Highlighter:"
         document.getElementById('as').innerText="Advanced settings"
         document.getElementById('block-title1').innerText="Text settings"
         document.getElementById('block-title2').innerText="Image settings"
@@ -114,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
    
     buttonSepia.onclick = function () {
-      let colorBg = "rgb(186, 181, 171, 0.8)";
-      let colorText = "rgb(141, 78, 19)";
+      let colorBg = "rgb(242, 232, 218)"
+      let colorText = "rgb(60, 41, 13)";
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.executeScript(tabs[0].id, {
           code: generate_theme(colorBg, colorText)
@@ -256,45 +265,95 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    image_changer = document.getElementById("bw-image")
-    
-    image_changer.onclick = function () {
-        if (image_changer.value == "Disabled"){
-            image_changer.value = "Enabled"
-            my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(1);");'
-        }else{
-            image_changer.value = "Disabled"
-            my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(0);");'
-        }
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            chrome.tabs.executeScript(tabs[0].id, {
-                code: my_code
-              });
+        var monochromEnable = document.getElementById("bw-image-enable");
+        var monochromDisable = document.getElementById("bw-image-disable");
+        
+        monochromEnable.onclick = function () {
+            my_code ='document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(1);");';
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: my_code,
+                });
+            });
+        };
+        monochromDisable.onclick = function () {
+            my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(0);");';
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: my_code,
+            });
+        });
+    };
+});
 
+document.addEventListener("DOMContentLoaded", function () {
+    
+
+    checkbox = document.getElementById("voice_over")
+
+    checkbox.onclick = function () {
+        function getSelectionText() {
+            var text = "";
+            if (window.getSelection) {
+                 text = window.getSelection().toString();
+            } else if (document.selection && document.selection.type != "Control") {
+                text = document.selection.createRange().text;
+            }
+            return text;
+        }
+        $(document).ready(function () {
+            $(document).mouseup(function (e) {
+        // attach the mouseup event for all div and pre tags
+                setTimeout(function () {
+        // When clicking on a highlighted area, the value stays highlighted until after the mouseup event, and would therefore stil be captured by getSelection. This micro-timeout solves the issue.
+                    responsiveVoice.cancel(); // stop anything currently being spoken
+                    responsiveVoice.speak(getSelectionText()); //speak the text as returned by getSelectionText
+                }, 1);
+            });
         });
     }
-  });
+});
+document.addEventListener("DOMContentLoaded", function () {
 
-  document.addEventListener("DOMContentLoaded", function () {
-    checkbox = document.getElementById("highlight")
+    checkbox = document.getElementById("highlighter")
+
     checkbox.onclick = function () {
-        if (checkbox.value == "Enabled"){
-            checkbox.value = "Disabled"
-        }else{
-            checkbox.value = "Enabled"
-        }
+
         my_code = 'if (document.querySelectorAll("style.color")[0] == null){'+
                         'var style = document.createElement("style");'+
-                        'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
+                        'style.innerHTML = ".select::selection{color: #000;background-color: yellow;}";'+
                         'style.className="color"; '+
                         'document.getElementsByTagName("head")[0].appendChild(style);}'+
                         'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
-                file: "design.js"
+                code: my_code,
               });
         });
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+        var highlightLinksEnable = document.getElementById("highlight-links-enabled");
+        var highlightLinksDisable = document.getElementById("highlight-links-disabled");
+    
+        highlightLinksEnable.onclick = function () {
+            my_code = `document.querySelectorAll("a").forEach(e => e.style = 'background-color: yellow; color: black;')`;
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: my_code,
+                });
+            });
+        };
+    
+        highlightLinksDisable.onclick = function () {
+            my_code = `document.querySelectorAll("a").forEach(e => e.style = 'background-color: ; color: ;')`;
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: my_code,
+                });
+             });
+         };
 });
 
 // change font style
@@ -317,7 +376,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     }
   });
-
 
   window.onload = function () {
 	function updateLabel() {
@@ -415,6 +473,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+  document.addEventListener("DOMContentLoaded", function () {
+        var buttonCustom = document.getElementById("custom");
+        buttonCustom.onclick = function () {
+            var colorBCG = document.getElementById("custom-color-bcg");
+            var colorTxt = document.getElementById("custom-color-text");
+            let colorBg = "#"+`${colorBCG.value}`;
+            let colorText = "#"+`${colorTxt.value}`;
+            
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: generate_theme(colorBg, colorText),
+                });
+            });
+        };
+    });
 
-
-  
+ document.addEventListener("DOMContentLoaded", function () {
+    var defaultFont = document.getElementById("restore-default-fontSize");
+    var input = document.getElementById("font_size_input");
+    var inputInterval = document.getElementById("line_space_input");
+    defaultFont.onclick = function () {
+        input.value = 16+" px";
+        inputInterval.value = 30+" px";
+        my_code =
+        'document.querySelectorAll("*").forEach(e => e.style = "font-size: ; line-height: ; background-color: ; color: ; font-weight: ; font-family: ;");';
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.executeScript(tabs[0].id, {
+                code: my_code,
+            });
+        });
+    };
+ });

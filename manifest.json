@@ -14,15 +14,15 @@
                 "<all_urls>"
                 ],
             "exclude_matches": ["https://www.google.com/*", "https://google.com/*", "http://www.google.com/*", "http://google.com/*", "https://mail.google.com/*", "http://mail.google.com/*", "https://studio.youtube.com/*"], 
-            "js":["jquery.min.js", "content.js"],
+            "js":["js/jquery.min.js", "content.js"],
             "run_at":"document_end"
         }
     ],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["js/background.js"],
         "persistent": true
       },
     
-    "permissions":["background","activeTab", "webRequestBlocking","*://*/*", "webRequest"]
+    "permissions":["background","activeTab", "webRequestBlocking", "webRequest"]
        
 }

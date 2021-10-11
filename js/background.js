@@ -1,4 +1,3 @@
-var enabled = true;
 const defaultFilters = [
     "*://*.doubleclick.net/*",
     "*://partner.googleadservices.com/*",
@@ -38,7 +37,7 @@ const defaultFilters = [
 chrome.webRequest.onBeforeRequest.addListener(
     function(details){
         return {
-            cancel: enabled
+            cancel: true
         }
     },
     {
