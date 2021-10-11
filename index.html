@@ -18,7 +18,9 @@
             <div class="header">
                 <h2><span id="logo">urHelper</span></h3>
                 <div class="languages">
-                    <button id="eng">EN</button> <button id="rus">RU</button> <button id="kaz">KZ</span>
+                    <img id="eng" src='img/eng.png' class="lang_button" width="30px" height="20px">
+                    <img id="rus" src='img/rus.png' class="lang_button" width="30px" height="20px">
+                    <img id="kaz" src='img/kaz.jpeg' class="lang_button" width="30px" height="20px">
                 </div>
             </div>
 
@@ -26,14 +28,14 @@
                 <h3><span id="bs">Basic settings</span></h3>
                 <div id="expand" class="block-title">Show</div>
                 <div id="main-content" class="main-content">
-                    <div style="display: flex; justify-content: space-between;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <span id="theme">Theme:</span> 
-                            <button id="white" class="theme">White</button> 
-                            <button id="dark" class="theme">Dark</button> 
-                            <button id="sepia" class="theme">Sepia</button>
+                            <button id="white" class="theme" style="border:1px solid #000; font-weight:bolder;color: #000; background-color: #fff;">F</button> 
+                            <button id="dark" class="theme" style="border:1px solid #000; font-weight:bolder;background-color: #000; color: #fff;">F</button> 
+                            <button id="sepia" class="theme"  style="border:1px solid #000; font-weight:bolder; background-color: rgb(242, 232, 218); color:rgb(60, 41, 13);">F</button>
                         </div>
-                            <button id="restore-default-fontSize" class="theme">Default</button>
+                        <img id="restore-default-fontSize"  src="img/reset.png" width="30px" style="cursor:pointer">
 
                     </div>
                     
@@ -42,19 +44,22 @@
                         <button id="highlight-links-enabled" class="apply button">Enable</button>
                         <button id="highlight-links-disabled" class="apply button">Disable</button>
                     </div>
-                    <div>
-                        <span id="bw">Mono images:</span> 
-                        <button id="bw-image-enable" class="apply button">Enable</button>
-                        <button id="bw-image-disable" class="apply button">Disable</button>
+                    <div style="display:flex; align-items: center;">
+                        <span id="bw">Images:</span> 
+                        <img id="bw-image-disable"  style="margin-left: 10px;" src="img/show_icon.png" width="20px" height="20px">
+                        <img id="bw-image-remove" style="margin-left: 10px;" src="img/hidden.png" width="25px" height="25px">
+                        <img id="bw-image-enable"  style="margin-left: 10px;" src="img/bw_icon.png" width="20px" height="20px">
+                        
                     </div>
-                    <div><span id="hl">Highlighter:</span> <button id="highlight">Add</button></div>
+                    <div> 
+                    <div><span id="hl">Highlighter:</span> <button id="highlight" class="button">Apply</button></div>
                         <div>
                             <span id="font_size">Font size: </span>
-                            <span id="remove-size"  class="control">➖</span>
+                            <span id="remove-size"  class="control">–</span>
                             <input type="text" id="font_size_input" value="16 px" class="hm" readonly/>
-                            <span  id="add-size" class="control">➕</span>
+                            <span  id="add-size" class="control">+</span>
                         </div>
-
+                    </div>  
 
                     </div>
                     
@@ -80,19 +85,19 @@
                                     <input type="button" id="custom" value="Change" class="apply button"/>
                                 </div>
                                 <div><span id="ls">Line spacing:</span> 
-                                    <span id="remove-int"  class="control">➖</span>
+                                    <span id="remove-int"  class="control">–</span>
                                     <input type="text" id="line_space_input" value="30 px" class="hm"  readonly/>
-                                    <span  id="add-int" class="control">➕</span>
+                                    <span  id="add-int" class="control">+</span>
                                     </div>
                                 <div><span id="cf">Choose font:</span></div> 
                                 <div style="display: flex; justify-content:space-between;">
                                     <div>
                                         <input type="radio" id="arial" name="fonts" value="arial">
-                                        <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
+                                        <label style="font-family: Arial;" for="arial">Arial</label>
                                         <input type="radio" id="open-sans" name="fonts" value="open-sans">
-                                        <label  for="open-sans">Open-sans</label>
+                                        <label  for="open-sans" style="font-family: Open-sans;">Open-sans</label>
                                         <input type="radio" id="verdana" name="fonts" value="verdana">
-                                        <label for="verdana">Verdana</label>
+                                        <label for="verdana" style="font-family: Verdana;">Verdana</label>
          
                                     </div>
                                     <button id="button-for-fontStyle" class="apply button">Change</button>
@@ -101,30 +106,49 @@
                                 <div style="display: flex; justify-content:space-between;">
                                     <div>
                                         <input type="radio" id="yellow" name="colors" value="black">
-                                        <label  for="yellow">Yellow</label>
+                                        <label  for="yellow" style="padding: 1px 2px 1px 2px;border: 1px solid #000;color:#000; background-color: yellow;">Yellow</label>
                                         <input type="radio" id="black" name="colors" value="white">
-                                        <label for="black">Black</label>
+                                        <label for="black" style="padding: 1px 2px 1px 2px;border: 1px solid #000;color:#fff; background-color: black;">Black</label>
                                         <input type="radio" id="white" name="colors" value="black">
-                                        <label for="orange">White</label>
+                                        <label for="white" style="padding: 1px 2px 1px 2px;border: 1px solid #000; color:#000; background-color: white;">White</label>
                                     </div>
                                     <button id="button-for-colorStyle" class="apply button">Change</button>
                                 </div>
                                     
-                                <div><span id="bold">Boldness: </span><button id="remove-bold" class="apply button" >Normal</button><button id="add-bold" class="apply button">Bold</button></div>
+                                <div>
+                                    <span id="bold">Boldness: </span>
+                                    <button id="remove-bold" class="apply button" >Normal</button>
+                                    <button id="add-bold" class="apply button" style="font-weight: bold;">Bold</button>
+                                </div>
                             </div>
 
                         </div>
                         <div id="image-menu" class="block-item">
                             <div id="block-title2" class="block-title">Image settings</div>
                             <div id="block-text2"class="block-text">
-                                <div><span id="B">Brightness: </span><span id="remove-bright"  class="control">➖</span><input type="text" class="hm" readonly  id="bright_input" value="100%"><span class="control" id="add-bright">➕</span></div>
-                                <div><span id="S">Saturation:</span> <span id="remove-satur"  class="control">➖</span><input type="text" class="hm" readonly  value="100%" id="satur_input"><span class="control" id="add-satur">➕</span></div>
-                                <div><span id="C">Contrast:</span> <span id="remove-contr"  class="control">➖</span><input type="text" class="hm"  readonly value="100%" id="contr_input"><span class="control" id="add-contr">➕</span></div>
+                                <div>
+                                    <span id="B">Brightness: </span>
+                                    <span id="remove-bright"  class="control">–</span>
+                                    <input type="text" class="hm" readonly  id="bright_input" value="100%">
+                                    <span class="control" id="add-bright">+</span>
+                                </div>
+                                <div>
+                                    <span id="S">Saturation:</span> 
+                                    <span id="remove-satur"  class="control">–</span>
+                                    <input type="text" class="hm" readonly  value="100%" id="satur_input">
+                                    <span class="control" id="add-satur">+</span>
+                                </div>
+                                <div>
+                                    <span id="C">Contrast:</span> 
+                                    <span id="remove-contr"  class="control">–</span>
+                                    <input type="text" class="hm"  readonly value="100%" id="contr_input">
+                                    <span class="control" id="add-contr">+</span>
+                                </div>
                                 <div style="display: flex; justify-content: center; margin-top: 10px;">
                                     <img src="test.jpg" id="test_img" width="120px">
                                 </div>
                                 <div style="display: flex; justify-content: center; margin-top: 10px;">
-                                    <input type="button" value="Apply" id="change_image"/>
+                                    <input type="button" class="button" value="Apply" id="change_image"/>
                                 </div>
                             </div>
                            

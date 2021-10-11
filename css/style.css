@@ -3,11 +3,22 @@ html,body{
     font-size: 18px;
     user-select: none;
 }
+body{
+    background-color: rgba(103, 84, 84, 0.1);
+}
 label, input, button, div{
     font-size: 18px;
 }
 input, button{
     cursor: pointer;
+}
+input{
+    border: 1px solid #000;
+    border-radius: 2px;
+
+}
+input:hover{
+    border: 1px solid #8f0000;
 }
 div{
     line-height: 30px;
@@ -61,6 +72,7 @@ p{
 }
 #expand.active{
     display: block;
+    
 }
 
 .block-title:hover{
@@ -70,17 +82,22 @@ p{
 .control{
     margin: 0px 2px 0px 2px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 25px;
+
 }
 .control:hover{
     color:#8f0000;
 }
+.theme{
+    width: 40px;
+}
 
-h3, h2{
-    color:#8f0000;
-    
+h3{
+    border-bottom: 1px solid rgb(155, 155, 155, 0.5);
 }
 h2, h3{
+    color:#8f0000;
     margin-top: 5px;
     margin-bottom: 5px;
 
@@ -94,6 +111,16 @@ h2, h3{
     top: 12px;
 
     transition: 0.5s;
+}
+.button{
+    background-color: rgb(179, 179, 179, 0.2);
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+.button:hover{
+    background-color: #8f0000;
+    color: #fff;
 
 }
 .block-title::before{
@@ -106,13 +133,15 @@ h2, h3{
     left:12px;
 }
 
-
 .block-text{
     padding: 5px 0px 0px 0px;
     transition: all .5s;
     height: 0;
     display: none;
     
+}
+.lang_button{
+    border: 1px solid rgb(155, 155, 155, 0.5);
 }
 
 .block-text.active{

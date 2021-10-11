@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded',function(){
     element.addEventListener('click',function(){
         document.getElementById('bs').innerText="Основные"
         document.getElementById('theme').innerText="Тема:"
-        document.getElementById('dark').innerText="Темная"
-        document.getElementById('white').innerText="Светлая"
-        document.getElementById('sepia').innerText="Сепия"
         document.getElementById('font_size').innerText="Размер шрифта:"
         document.getElementById('bw').innerText="Монохромные картинки:"
         document.getElementById('hl').innerText="Выделять текст:"
@@ -56,9 +53,6 @@ document.addEventListener('DOMContentLoaded',function(){
     element.addEventListener('click',function(){   
         document.getElementById('bs').innerText="Негізгі меню"
         document.getElementById('theme').innerText="Тема:"
-        document.getElementById('dark').innerText="Қараңғы"
-        document.getElementById('white').innerText="Жарық"
-        document.getElementById('sepia').innerText="Сепия"
         document.getElementById('font_size').innerText="Қаріп өлшемі:"
         document.getElementById('bw').innerText="Монохромды суреттер:"
         document.getElementById('hl').innerText="Мәтінді ерекшелеу:"
@@ -78,9 +72,6 @@ document.addEventListener('DOMContentLoaded',function(){
     element.addEventListener('click',function(){
         document.getElementById('bs').innerText="Basic settings"
         document.getElementById('theme').innerText="Theme:"
-        document.getElementById('dark').innerText="Dark"
-        document.getElementById('white').innerText="White"
-        document.getElementById('sepia').innerText="Sepia"
         document.getElementById('font_size').innerText="Font size:"
         document.getElementById('bw').innerText="Mono images:"
         document.getElementById('hl').innerText="Highlighter:"
@@ -104,6 +95,7 @@ function generate_theme(colorBg, colorText){
     my_code =  my_code +'document.querySelectorAll("*").forEach(e => e.style.color= "'+colorText+'");'
     return my_code
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     var buttonDark = document.getElementById("dark");
@@ -267,9 +259,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("DOMContentLoaded", function () {
         var monochromEnable = document.getElementById("bw-image-enable");
         var monochromDisable = document.getElementById("bw-image-disable");
+        var monochromRemove = document.getElementById("bw-image-remove");
         
         monochromEnable.onclick = function () {
-            my_code ='document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(1);");';
+            my_code ='document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(1); display:block;");';
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                chrome.tabs.executeScript(tabs[0].id, {
+                    code: my_code,
+                });
+            });
+        };
+        monochromRemove.onclick = function () {
+            my_code ='document.querySelectorAll("img").forEach(e => e.style = "display:none;");';
             chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                 chrome.tabs.executeScript(tabs[0].id, {
                     code: my_code,
@@ -291,8 +292,6 @@ document.addEventListener("DOMContentLoaded", function () {
     checkbox = document.getElementById("highlight")
 
     checkbox.onclick = function () {
-
-
         my_code = 'if (document.querySelectorAll("style.color")[0] == null){'+
                         'var style = document.createElement("style");'+
                         'style.innerHTML = ".select::selection{color: #000;background-color: yellow;}";'+
