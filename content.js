@@ -287,37 +287,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    
 
-    checkbox = document.getElementById("voice_over")
-
-    checkbox.onclick = function () {
-        function getSelectionText() {
-            var text = "";
-            if (window.getSelection) {
-                 text = window.getSelection().toString();
-            } else if (document.selection && document.selection.type != "Control") {
-                text = document.selection.createRange().text;
-            }
-            return text;
-        }
-        $(document).ready(function () {
-            $(document).mouseup(function (e) {
-        // attach the mouseup event for all div and pre tags
-                setTimeout(function () {
-        // When clicking on a highlighted area, the value stays highlighted until after the mouseup event, and would therefore stil be captured by getSelection. This micro-timeout solves the issue.
-                    responsiveVoice.cancel(); // stop anything currently being spoken
-                    responsiveVoice.speak(getSelectionText()); //speak the text as returned by getSelectionText
-                }, 1);
-            });
-        });
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-
-    checkbox = document.getElementById("highlighter")
+    checkbox = document.getElementById("highlight")
 
     checkbox.onclick = function () {
+
 
         my_code = 'if (document.querySelectorAll("style.color")[0] == null){'+
                         'var style = document.createElement("style");'+
@@ -325,6 +299,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         'style.className="color"; '+
                         'document.getElementsByTagName("head")[0].appendChild(style);}'+
                         'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
+        alert(my_code)
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
                 code: my_code,
