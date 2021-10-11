@@ -91,10 +91,17 @@
                         <div id="image-menu" class="block-item">
                             <div id="block-title2" class="block-title">Image settings</div>
                             <div id="block-text2"class="block-text">
-                                <div><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></div>
-                                <div><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></div>
-                                <div><span id="C">Contrast:</span> <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></div>
+                                <div><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" class="hm" disabled  id="bright_input" value="100%"><span class="control" id="add-bright">&#5171;</span></div>
+                                <div><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" class="hm" disabled  value="100%" id="satur_input"><span class="control" id="add-satur">&#5171;</span></div>
+                                <div><span id="C">Contrast:</span> <span id="remove-contr"  class="control">&#5176;</span><input type="text" class="hm"  disabled  value="100%" id="contr_input"><span class="control" id="add-contr">&#5171;</span></div>
+                                <div style="display: flex; justify-content: center; margin-top: 10px;">
+                                    <img src="test.jpg" id="test_img" width="120px">
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-top: 10px;">
+                                    <input type="button" value="Apply" id="change_image"/>
+                                </div>
                             </div>
+                           
                         </div>
                 </div>
             </div>

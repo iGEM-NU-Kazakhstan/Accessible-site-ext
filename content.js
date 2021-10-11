@@ -94,7 +94,6 @@ function generate_theme(colorBg, colorText){
     my_code = 'document.querySelectorAll("*").forEach(e => e.style.backgroundColor = "'+colorBg+'");'
     my_code =  my_code +'document.querySelectorAll("*").forEach(e => e.style.color= "'+colorText+'");'
     return my_code
-
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -258,16 +257,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("DOMContentLoaded", function () {
     image_changer = document.getElementById("bw-image")
-
-    my_code = 'var style = document.createElement("style");'+
-                'style.innerHTML = ".gray_img{filter: grayscale();}";'+
-                'document.getElementsByTagName("head")[0].appendChild(style);'+
-                'document.querySelectorAll("img").forEach(e => e.classList.toggle("gray_img"));'
+    
     image_changer.onclick = function () {
-        if (image_changer.value == "Enabled"){
-            image_changer.value = "Disabled"
-        }else{
+        if (image_changer.value == "Disabled"){
             image_changer.value = "Enabled"
+            my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(1);");'
+        }else{
+            image_changer.value = "Disabled"
+            my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:grayscale(0);");'
         }
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
@@ -293,8 +290,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
                         'style.className="color";document.getElementsByTagName("head")[0].appendChild(style);}'
                     +'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
-                    
-
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
                 code: my_code
@@ -337,3 +332,90 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 	updateLabel();
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var removeBright = document.getElementById("remove-bright");
+    var increaseBright = document.getElementById("add-bright");
+
+    var removeSatur = document.getElementById("remove-satur");
+    var increaseSatur = document.getElementById("add-satur");
+
+    var removeContr = document.getElementById("remove-contr");
+    var increaseContr = document.getElementById("add-contr");
+
+    var bright_input = document.getElementById("bright_input");
+    var contr_input = document.getElementById("contr_input");
+    var satur_input = document.getElementById("satur_input");
+
+    var button = document.getElementById("change_image");
+
+    let bright = 1;
+    let satur = 1;
+    let contr = 1;
+
+    removeBright.onclick = function () {
+        bright-= 0.1;
+        document.getElementById("test_img").style = "filter:brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+      
+      bright_input.value = Math.round(bright*100)+"%"
+      if (bright < 0) {
+        bright = 0;
+        bright_input.value = 0;
+      }
+    };
+    increaseBright.onclick = function () {
+        bright += 0.1;
+        document.getElementById("test_img").style = "filter:brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+      
+        bright_input.value = Math.round(bright*100)+"%"
+    };
+
+    removeSatur.onclick = function () {
+        satur-= 0.1;
+        document.getElementById("test_img").style = "filter:brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+        satur_input.value = Math.round(satur*100)+"%"
+        if (satur < 0) {
+          satur = 0;
+          satur_input.value = 0;
+        }
+    };
+
+    increaseSatur.onclick = function () {
+        satur += 0.1;
+        document.getElementById("test_img").style = "filter: brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+        satur_input.value = Math.round(satur*100)+"%"
+    };
+
+    removeContr.onclick = function () {
+        contr-= 0.1;
+        document.getElementById("test_img").style = "filter: brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+        contr_input.value = Math.round(contr*100)+"%"
+        if (contr < 0) {
+            contr = 0;
+            contr_input.value = 0;
+        }
+    };
+
+    increaseContr.onclick = function () {
+        contr += 0.1;
+        document.getElementById("test_img").style = "filter: brightness("+bright+") contrast("+contr+") saturate("+satur+")"
+        contr_input.value = Math.round(contr*100)+"%"
+    };
+
+    button.onclick = function (){
+        my_code = 'document.querySelectorAll("img").forEach(e => e.style = "filter:brightness('+bright+') contrast('+contr+') saturate('+satur+')");'
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.executeScript(tabs[0].id, {
+        code: my_code
+    });
+  });
+
+    };
+
+  });
+
+
+
+
+  
