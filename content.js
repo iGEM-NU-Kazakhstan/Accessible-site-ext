@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
     removeInt.onclick = function () {
       textSize -= 1;
-      input.value = textSize
+      input.value = textSize +"px"
       if (textSize > 0) {
         my_code = 'document.querySelectorAll("*").forEach(e => e.style.lineHeight = "'+textSize+"px"+'");'
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
