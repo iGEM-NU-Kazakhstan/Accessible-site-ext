@@ -6,12 +6,12 @@
         <link rel="import" href="html/rus_version.html">
         <script src="content.js"></script>
         <script src="jquery.min.js"></script>
-        <script src="add_blocker.js"></script>
+    
     </head>
     <body>
         <div class="wrapper">
             <div class="header">
-                <h2><span id="bs">Basic settings</span></h3>
+                <h3><span id="bs">Basic settings</span></h3>
                 <div class="languages">
                     <button id="eng">EN</button> <button id="rus">RU</button> <button id="kaz">KZ</span>
                 </div>
@@ -27,15 +27,16 @@
                     </div>
                     <div>
                         <span id="font_size">Font size: </span>
-                        <button id="remove-size" class="control">–</button>
-                        <button id="add-size" class="control">+</button>
+                        <span id="remove-size"  class="control">&#5176;</span>
+                        <input type="text" id="font_size_input" value="16 px" class="hm" disabled/>
+                        <span  id="add-size" class="control">&#5171;</span>
                     </div>
                     <div>
-                        <span id="hl">Highlight-text:</span>
+                        <span id="hl">Highlight text:</span>
                         <input type="button" id="highlight" value="Disabled">
                     </div>
                     <div>
-                        <span id="bw">Monochrome images:</span> 
+                        <span id="bw">Monochrome pictures:</span> 
                         <input type="button" id="bw-image" value="Disabled">
                     </div>
                    
@@ -46,15 +47,16 @@
                 </div>
 
                 <div class="advanced-content">
-                    <h2><span id="as">Advanced settings</span></h3>
+                    <h3><span id="as">Advanced settings</span></h3>
 
                     <div class="block">
                         <div id="text-menu" class="block-item">
-                            <div id="block-title1" class="block-title">Text options</div>
+                            <div id="block-title1" class="block-title">Text settings</div>
                             <div id="block-text1" class="block-text">
                                 <div><span id="ls">Line spacing:</span> 
-                                    <button id="remove-int"  class="control">–</button >
-                                    <button  id="add-int"  class="control">+</button >
+                                    <span id="remove-int"  class="control">&#5176;</span>
+                                    <input type="text" id="line_space_input" value="30 px" class="hm"  disabled/>
+                                    <span  id="add-int" class="control">&#5171;</span>
                                     </div>
                                 <div><span id="cf">Choose font:</span></div> 
                                 <div style="display: flex; justify-content:space-between;">
@@ -82,12 +84,12 @@
                                     <button id="button-for-colorStyle" class="apply button">Change</button>
                                 </div>
                                     
-                                <div>Make it bolder: <button id="remove-bold" class="control">–</button><button id="add-bold" class="control">+</button></div>
+                                <div>Boldness: <button id="remove-bold" class="control">Normal</button><button id="add-bold" class="control">Bold</button></div>
                             </div>
 
                         </div>
                         <div id="image-menu" class="block-item">
-                            <div id="block-title2" class="block-title">Image options</div>
+                            <div id="block-title2" class="block-title">Image settings</div>
                             <div id="block-text2"class="block-text">
                                 <div><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></div>
                                 <div><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></div>

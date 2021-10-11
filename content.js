@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     var element = document.getElementById('rus');
     element.addEventListener('click',function(){
-        document.getElementById('bs').innerText="Основные настройки"
+        document.getElementById('bs').innerText="Основные"
         document.getElementById('theme').innerText="Тема:"
         document.getElementById('dark').innerText="Темная"
         document.getElementById('white').innerText="Светлая"
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',function(){
         document.getElementById('font_size').innerText="Размер шрифта:"
         document.getElementById('bw').innerText="Монохромные картинки:"
         document.getElementById('hl').innerText="Выделять текст:"
-        document.getElementById('as').innerText="Дополнительные настройки"
+        document.getElementById('as').innerText="Дополнительные"
         document.getElementById('block-title1').innerText="Настройки текста"
         document.getElementById('block-title2').innerText="Настройки картинок"
         document.getElementById('ls').innerText="Межстрочный интервал"
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded',function(){
     })
     var element = document.getElementById('kaz');
     element.addEventListener('click',function(){   
-        document.getElementById('bs').innerText="Негізгі параметрлер"
+        document.getElementById('bs').innerText="Негізгі меню"
         document.getElementById('theme').innerText="Тема:"
         document.getElementById('dark').innerText="Қараңғы"
         document.getElementById('white').innerText="Жарық"
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded',function(){
         document.getElementById('font_size').innerText="Қаріп өлшемі:"
         document.getElementById('bw').innerText="Монохромды суреттер:"
         document.getElementById('hl').innerText="Мәтінді ерекшелеу:"
-        document.getElementById('as').innerText="Қосымша параметрлер"
+        document.getElementById('as').innerText="Қосымша меню"
         document.getElementById('block-title1').innerText="Мәтін параметрлері"
         document.getElementById('block-title2').innerText="Сурет параметрлері"
         document.getElementById('ls').innerText="Жол аралығы"
@@ -141,10 +141,12 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("DOMContentLoaded", function () {
     var removeSize = document.getElementById("remove-size");
     var increaseSize = document.getElementById("add-size");
+    var input = document.getElementById("font_size_input");
     let textSize = 16;
    
     removeSize.onclick = function () {
       textSize -= 0.5;
+      input.value = textSize + " px"
       my_code = 'document.querySelectorAll("*").forEach(e => e.style.fontSize = "'+textSize+"px"+'");'
       if (textSize > 0) {
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -160,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
     increaseSize.onclick = function () {
       textSize += 0.5;
+      input.value = textSize + " px"
       my_code = 'document.querySelectorAll("*").forEach(e => e.style.fontSize = "'+textSize+"px"+'");'
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.executeScript(tabs[0].id, {
@@ -224,10 +227,12 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     var removeInt = document.getElementById("remove-int");
     var increaseInt = document.getElementById("add-int");
+    var input = document.getElementById("line_space_input");
     let textSize = 30;
    
     removeInt.onclick = function () {
       textSize -= 1;
+      input.value = textSize
       if (textSize > 0) {
         my_code = 'document.querySelectorAll("*").forEach(e => e.style.lineHeight = "'+textSize+"px"+'");'
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -242,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
    
     increaseInt.onclick = function () {
       textSize += 1;
+      input.value = textSize + " px"
       my_code = 'document.querySelectorAll("*").forEach(e => e.style.lineHeight = "'+textSize+"px"+'");'
       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.executeScript(tabs[0].id, {
@@ -318,3 +324,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     }
   });
+
+
+  window.onload = function () {
+	function updateLabel() {
+		var enabled = chrome.extension.getBackgroundPage().enabled;
+		document.getElementById('toggle_button').value = enabled ? "Disabled" : "Enabled";
+	}
+	document.getElementById('toggle_button').onclick = function () {
+		var background = chrome.extension.getBackgroundPage();
+		background.enabled = !background.enabled;
+		updateLabel();
+	};
+	updateLabel();
+}
