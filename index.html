@@ -11,76 +11,87 @@
     <body>
         <div class="wrapper">
             <div class="header">
-                <div class="logo">
-                    <h1 class="ext-logo">Logo</h1>
-                </div>
+                <h2><span id="bs">Basic settings</span></h3>
                 <div class="languages">
                     <button id="eng">EN</button> <button id="rus">RU</button> <button id="kaz">KZ</span>
                 </div>
+
             </div>
             <div id="content" class="content">
                 <div class="main-content">
-                    <h3><span id="bs">Basic settings</span></h3>
-                    <p>
+                    <div>
                         <span id="theme">Theme:</span> 
                         <button id="white" class="theme">White</button> 
                         <button id="dark" class="theme">Dark</button> 
-                        <button id="sepia" class="theme">Sepia</button></p>
-                    <p>
+                        <button id="sepia" class="theme">Sepia</button>
+                    </div>
+                    <div>
                         <span id="font_size">Font size: </span>
                         <button id="remove-size" class="control">–</button>
                         <button id="add-size" class="control">+</button>
-                    </p>
-                    <p>
-                        <span id="bw">Monochrome images:</span> 
-                        <input type="checkbox" id="bw-image">
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <span id="hl">Highlight-text:</span>
-                        <input type="checkbox" id="highlight">
-                    </p>
-                    <p>
+                        <input type="button" id="highlight" value="Disabled">
+                    </div>
+                    <div>
+                        <span id="bw">Monochrome images:</span> 
+                        <input type="button" id="bw-image" value="Disabled">
+                    </div>
+                   
+                    <div>
                         <span id="blocker">Block suspicious links:</span>
-                        <input type="button" id="toggle_button" value="Disable" />
-                    </p>
+                        <input type="button" id="toggle_button" value="Enabled" />
+                    </div>
                 </div>
 
                 <div class="advanced-content">
-                    <h3><span id="as">Advanced settings</span></h3>
+                    <h2><span id="as">Advanced settings</span></h3>
 
                     <div class="block">
                         <div id="text-menu" class="block-item">
                             <div id="block-title1" class="block-title">Text options</div>
                             <div id="block-text1" class="block-text">
-                                <p><span id="ls">Line spacing:</span> 
+                                <div><span id="ls">Line spacing:</span> 
                                     <button id="remove-int"  class="control">–</button >
                                     <button  id="add-int"  class="control">+</button >
-                                </p>
-                                <p><span id="cf">Choose font:</span></p> 
-                                <div>
-                                    <input type="radio" id="arial" name="fonts" value="arial">
-                                    <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
-                                    <input type="radio" id="open-sans" name="fonts" value="open-sans">
-                                    <label  for="open-sans">Open-sans</label>
-                                    <input type="radio" id="verdana" name="fonts" value="verdana">
-                                    <label for="verdana">Verdana</label>
-                                    <input type="radio" id="georgia" name="fonts" value="Georgia">
-                                    <label for="verdana">Georgia</label>
-                                    <div style="display: flex;justify-content:center;">
-                                        <button id="button-for-fontStyle" class="apply button">Apply</button>
                                     </div>
-                                    
+                                <div><span id="cf">Choose font:</span></div> 
+                                <div style="display: flex; justify-content:space-between;">
+                                    <div>
+                                        <input type="radio" id="arial" name="fonts" value="arial">
+                                        <label style="font-family: Arial, sans-serif;" for="arial">Arial</label>
+                                        <input type="radio" id="open-sans" name="fonts" value="open-sans">
+                                        <label  for="open-sans">Open-sans</label>
+                                        <input type="radio" id="verdana" name="fonts" value="verdana">
+                                        <label for="verdana">Verdana</label>
+                                        
+                                    </div>
+                                    <button id="button-for-fontStyle" class="apply button">Apply</button>
                                 </div>
-                                <p>Make it bolder: <button id="remove-bold" class="control">–</button><button id="add-bold" class="control">+</button></p>
+                                <div><span id="hf">Change color of highlight:</span></div>
+                                <div style="display: flex; justify-content:space-between;">
+                                    <div>
+                                        <input type="radio" id="yellow" name="colors" value="black">
+                                        <label  for="yellow">Yellow</label>
+                                        <input type="radio" id="black" name="colors" value="white">
+                                        <label for="black">Black</label>
+                                        <input type="radio" id="white" name="colors" value="black">
+                                        <label for="orange">White</label>
+                                    </div>
+                                    <button id="button-for-colorStyle" class="apply button">Change</button>
+                                </div>
+                                    
+                                <div>Make it bolder: <button id="remove-bold" class="control">–</button><button id="add-bold" class="control">+</button></div>
                             </div>
 
                         </div>
                         <div id="image-menu" class="block-item">
                             <div id="block-title2" class="block-title">Image options</div>
                             <div id="block-text2"class="block-text">
-                                <p><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></p>
-                                <p><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></p>
-                                <p><span id="C">Contrast:</span> <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></p>
+                                <div><span id="B">Brightness: </span><span id="remove-bright"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-bright">&#5171;</span></div>
+                                <div><span id="S">Saturation:</span> <span id="remove-satur"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-satur">&#5171;</span></div>
+                                <div><span id="C">Contrast:</span> <span id="remove-contr"  class="control">&#5176;</span><input type="text" disabled style="width: 25px;"><span class="control" id="add-contr">&#5171;</span></div>
                             </div>
                         </div>
                 </div>

@@ -2,11 +2,13 @@ html,body{
     font-family: Helvetica, sans-serif;
     font-size: 16px;
 }
-label, input, button{
+label, input, button, div{
     font-size: 16px;
 }
-input{
-    text-align: center;
+
+div{
+    line-height: 30px;
+
 }
 .block{
  
@@ -15,12 +17,12 @@ input{
     display: flex; justify-content:space-between;
 }
 .wrapper{
-    width:350px;
+    width: 350px;
     margin: 10px 10px 10px 10px;
     height: 100%;
 }
 .block-item{
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 10px 0px;
 
 }
 .block-title{
@@ -30,20 +32,14 @@ input{
     padding: 0px 0px 0px 30px;
     cursor: pointer;
 }
-h1{
-    text-transform: uppercase;
-}
 .languages{
-    margin-top: 25px;
+    margin-top: 20px;
 }
 .control{
     margin: 0px 2px 0px 2px;
 }
-.apply{
-    margin-top:10px;
-}
 
-h3{
+h2{
     color:#8f0000;
 }
 .block-title::before, .block-title::after{
@@ -52,7 +48,7 @@ h3{
     height: 1px;
     background-color: #000;
     position: absolute;
-    top: 8px;
+    top: 12px;
     transition: 0.5s;
 
 }

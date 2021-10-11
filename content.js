@@ -228,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
    
     removeInt.onclick = function () {
       textSize -= 1;
-
       if (textSize > 0) {
         my_code = 'document.querySelectorAll("*").forEach(e => e.style.lineHeight = "'+textSize+"px"+'");'
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -253,13 +252,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    checkbox = document.getElementById("bw-image")
+    image_changer = document.getElementById("bw-image")
 
     my_code = 'var style = document.createElement("style");'+
                 'style.innerHTML = ".gray_img{filter: grayscale();}";'+
                 'document.getElementsByTagName("head")[0].appendChild(style);'+
                 'document.querySelectorAll("img").forEach(e => e.classList.toggle("gray_img"));'
-    checkbox.onclick = function () {
+    image_changer.onclick = function () {
+        if (image_changer.value == "Enabled"){
+            image_changer.value = "Disabled"
+        }else{
+            image_changer.value = "Enabled"
+        }
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
                 code: my_code
@@ -272,10 +276,20 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("DOMContentLoaded", function () {
     checkbox = document.getElementById("highlight")
     checkbox.onclick = function () {
-        my_code = 'var style = document.createElement("style");'+
+        if (checkbox.value == "Enabled"){
+            checkbox.value = "Disabled"
+        }else{
+            checkbox.value = "Enabled"
+        }
+        my_code = 'var style = document.createElement("style");'+'style.className="color";'+
                     'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
-                    'document.getElementsByTagName("head")[0].appendChild(style);'+
-                    'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));',
+                    'if (document.querySelectorAll("style.color")[0] == null){'+
+                        'var style = document.createElement("style");'+
+                        'style.innerHTML = ".select::selection{color: #fff;background-color: #000;}";'+
+                        'style.className="color";document.getElementsByTagName("head")[0].appendChild(style);}'
+                    +'document.querySelectorAll("*").forEach(e => e.classList.toggle("select"));'
+                    
+
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, {
                 code: my_code
@@ -283,3 +297,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// change font style
+document.addEventListener("DOMContentLoaded", function () {
+    var buttonFontStyle = document.getElementById("button-for-colorStyle");
+   
+    buttonFontStyle.onclick = function () {
+      const colors = document.querySelectorAll('input[name="colors"]');
+      
+      chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        colors.forEach((color) => {
+          if (color.checked) {
+            my_code = 'document.querySelectorAll("style.color").forEach(e => e.innerHTML=".select::selection{color:'+color.value+'; background-color:'+color.id+';}");'
+            chrome.tabs.executeScript(tabs[0].id, {
+              code: my_code,
+            });
+          }
+        });
+
+    });
+    }
+  });
